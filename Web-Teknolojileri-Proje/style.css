@@ -1,6 +1,21 @@
 .navbar{
     background: rgb(49, 1, 1);
+    position: fixed;
 }
 body{
     background: rgb(49, 1, 1);
+}
+.nav-item.active{
+    background: #666b71;
+    border-radius: 5px;
+}
+.nav-item:hover{
+    background: #a3abb5;
+    border-radius: 5px;
+    transition: .8s;
+}
+#button{
+    background-image: url(cizgii.png);
+    height: 40px;
+    width: 50px;
 }
