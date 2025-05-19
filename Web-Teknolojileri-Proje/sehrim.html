@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Responsive -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	
+	<!-- Css -->
+	<link rel="stylesheet" href="style.css">
+
+    <!-- Custom JavaScript -->
+    <script>
+        function toggleMenu() {
+            var navbar = document.getElementById("navbarSupportedContent");
+            if (navbar.classList.contains("show")) {
+                navbar.classList.remove("show");
+            } else {
+                navbar.classList.add("show");
+            }
+        }
+    </script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şehrim | Kağan Çevik</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-white ">
+    
+        <div class="container">
+
+            <a href="hakkında.html" class="navbar-brand text-white">
+                Kağan Çevik
+            </a>
+            <button id="button" class="navbar-toggler" type="button" onclick="toggleMenu()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto ">
+
+					<li class="nav-item">
+						<a href="hakkında.html" class="nav-link text-white">
+	      				Hakkında
+	      				</a></li>
+
+	      			<li class="nav-item">
+						<a href="ozgecmis.html" class="nav-link text-white">
+	      				Özgeçmiş
+	      				</a></li>	
+
+					<li class="nav-item active">
+						<a href="sehrim.html" class="nav-link text-white">
+	      				Şehrim
+	      				</a></li>
+
+	      			<li class="nav-item">
+						<a href="takımımız.html" class="nav-link text-white">
+	      				Takımımız
+	      				</a></li>
+
+	      			<li class="nav-item">
+						<a href="#" class="nav-link text-white">
+                        Login
+	      				</a>
+                    </li>	
+                    
+                    <li class="nav-item">
+						<a href="#" class="nav-link text-white">
+                        İletişim
+	      				</a>
+                    </li>
+				</ul>
+			</div>
+        </div>
+    </nav>
+    <header>
+        <div class="bg-secondary text-light jumbotron">
+            <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-9">
+                    <br>
+                    <h1 class="display-4 font-weight-bold">
+                        ŞEHRİM: TRABZON
+                    </h1>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col-12 col-md-12">
+                    <i>Trabzon Hakkında<br><br>
+                        Karadeniz'in güzide şehirlerinden Trabzon, Türkiye'nin doğu kısmında bulunmaktadır. Karadenizin kalbi olan bu
+                        şehrin 17 adet ilçesi ve yaklaşık olarak da  820 bin kişilik nüfusu bulunmaktadır. Tarihsel olarak da belli 
+                        öneme sahip olan bu şehir, yaylalarıyla meşhurdur. Geçit vermeyen dağları sebebiyle dışarıya çok fazla göç 
+                        vermektedir.
+                        <br><br>
+                        Trabzonda genellikle yağışlı bir hava hüküm sürer. Kışlar çok soğuk geçmese de genellikle yağışlıdır. Yazın
+                        yağmur yağması burada halk tarafından çok normal karşılanır. 
+                        <br><br>
+                        Trabzonda görüp gezilebilecek çok fazla turistik yer bulunmaktadır. Bunlara başlıca Sümela Manastırı'nı, 
+                        Ayosofya Müzesi'ni, Boztepe'yi, Uzungöl'ü, Atatürk Köşkü'nü ve Gülbahar Hatun Türbesi'ni örnek verebiliriz.
+                    </i>
+                </p>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="sumela.html">
+                            <img class="d-block w-100" src="sumela.jpg" alt="Sümela Manastırı">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Sümela Manastırı</h5>
+                                <p>Trabzon</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="ayasofya.html">
+                            <img class="d-block w-100" src="ayasofya.jpg" alt="Ayasofya Müzesi">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Ayasofya Müzesi</h5>
+                                <p>Trabzon</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="boztepe.html">
+                            <img class="d-block w-100" src="boztepe.jpg" alt="Boztepe">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Boztepe</h5>
+                                <p>Trabzon</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="uzungöl.html">
+                            <img class="d-block w-100" src="uzungöl.jpg" alt="Uzungöl">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Uzungöl</h5>
+                                <p>Trabzon</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="atatürkevi.html">
+                            <img class="d-block w-100" src="atatürkköşkü.jpg" alt="Atatürk Evi ve Müzesi">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Atatürk Evi ve Müzesi</h5>
+                                <p>Trabzon</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="gulbahar.html">
+                            <img class="d-block w-100" src="gulbaharhatun.jpg" alt="Gülbahar Hatun Türbesi">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Gülbahar Hatun Türbesi</h5>
+                                <p>Trabzon</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="bg-secondary text-light jumbotron">
+        </div>
+    </header>
+
+<footer class="py-5 bg-secondary text-white text-center fixed-bottom">
+        Web Teknolojileri Projesi © Kağan Çevik 2025
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</body>
+</html>
