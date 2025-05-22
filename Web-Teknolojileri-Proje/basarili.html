@@ -23,10 +23,15 @@
             }
         }
     </script>
-
+    <style>
+        #message{
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+    </style>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boztepe | Kağan Çevik</title>
+    <title>İletişim | Kağan Çevik</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-white ">
@@ -52,13 +57,13 @@
 	      				Özgeçmiş
 	      				</a></li>	
 
-					<li class="nav-item active">
+					<li class="nav-item">
 						<a href="sehrim.html" class="nav-link text-white">
 	      				Şehrim
 	      				</a></li>
 
 	      			<li class="nav-item">
-						<a href="takimimiz.html" class="nav-link text-white">
+						<a href="takımımız.html" class="nav-link text-white">
 	      				Takımımız
 	      				</a></li>
 
@@ -67,8 +72,8 @@
                         Login
 	      				</a>
                     </li>	
-
-                    <li class="nav-item">
+                    
+                    <li class="nav-item active">
 						<a href="iletisim.html" class="nav-link text-white">
                         İletişim
 	      				</a>
@@ -81,30 +86,60 @@
         <div class="bg-secondary text-light jumbotron">
             <div class="container">
             <div class="row">
-                <div class="col-md">
+                <div class="col-12">
                     <br>
                     <h1 class="display-4 font-weight-bold">
-                        BOZTEPE
+                        MESAJ BAŞARILI!
                     </h1>
                     <br>
-                    <img class="rounded mx-auto d-block" src="boztepe.jpg" width=100%>
-                    <br>
-                    <p><i>
-                        Şehrin kuşbakışı manzarasını seyrederken lezzetli çay içmek isterseniz, adresiniz Boztepe olmalı. Buranın
-                        manzarası şahane. Gündüzü de gecesi de ayrı güzel. İsteyenler demlikle çay satın alabiliyor.
+                    <p class="lead"><i>
+                        Başarılı Bir Şekilde Gönderdiniz!
                     </i></p>
                 </div>
             </div>
-            <div class="col-md text-center">
-                <a href="sehrim.html" class="nav-link"><i>Önceki sayfaya geri dön...</i></a>
-            </div>
+                    <script type="text/javascript">
+                        function getParameterByName(name, url) 
+                        {
+                            if (!url) url = window.location.href;
+                               name = name.replace(/[\[\]]/g, '\\$&');
+                            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                                results = regex.exec(url);
+                               if (!results) return null;
+                               if (!results[2]) return '';
+                               return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                        }
+                          var name = getParameterByName('name');
+                          var email = getParameterByName('email');
+                          var message = getParameterByName('message');
+                    </script>
+                    <table class="table">
+                                <tr>
+                                    <td class="font-weight-bold">İsminiz</td>
+                                    <td id="message">
+                                        <script>document.write(name);
+                                        </script>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">E-Mail</td>
+                                    <td id="message">
+                                        <script>document.write(email);
+                                        </script>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Mesajınız</td>
+                                    <td id="message">
+                                        <script>document.write(message);
+                                        </script>
+                                    </td>
+                                </tr>
+                    </table>
+                    <div class="col-md text-center">
+                        <a href="iletisim.html" class="nav-link"><i>Geri dön...</i></a>
+                    </div>
             </div>
         </div>
-
-
-
-
-
 
         <div class="bg-secondary text-light jumbotron">
         </div>
