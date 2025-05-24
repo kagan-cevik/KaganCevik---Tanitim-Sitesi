@@ -1,8 +1,8 @@
 .navbar{
-    background: rgb(49, 1, 1);
+    background: rgb(37, 0, 0);
 }
 body{
-    background: rgb(49, 1, 1);
+    background: rgb(37, 0, 0);
 }
 .nav-item.active{
     background: #666b71;
@@ -14,7 +14,7 @@ body{
     transition: .8s;
 }
 .error-message{
-    color: black;
+    color: rgb(109, 3, 3);
 }
 #message{
             word-wrap: break-word;
