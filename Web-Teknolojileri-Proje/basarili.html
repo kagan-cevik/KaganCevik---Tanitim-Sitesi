@@ -77,8 +77,8 @@
         </div>
     </nav>
     <header>
-        <div class="bg-secondary text-light jumbotron">
-            <div class="container">
+    <div class="bg-secondary text-light jumbotron">
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <br>
@@ -91,55 +91,58 @@
                     </i></p>
                 </div>
             </div>
-                    <script type="text/javascript">
-                        function getParameterByName(name, url) 
-                        {
-                            if (!url) url = window.location.href;
-                               name = name.replace(/[\[\]]/g, '\\$&');
-                            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                                results = regex.exec(url);
-                               if (!results) return null;
-                               if (!results[2]) return '';
-                               return decodeURIComponent(results[2].replace(/\+/g, ' '));
-                        }
-                          var name = getParameterByName('name');
-                          var email = getParameterByName('email');
-                          var message = getParameterByName('message');
-                    </script>
-                    <table class="table">
-                                <tr>
-                                    <td class="font-weight-bold">İsminiz</td>
-                                    <td id="message">
-                                        <script>document.write(name);
-                                        </script>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-bold">E-Mail</td>
-                                    <td id="message">
-                                        <script>document.write(email);
-                                        </script>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-bold">Mesajınız</td>
-                                    <td id="message">
-                                        <script>document.write(message);
-                                        </script>
-                                    </td>
-                                </tr>
-                    </table>
-                    <div class="col-md text-center">
-                        <a href="iletisim.html" class="nav-link"><i>Geri dön...</i></a>
-                    </div>
+
+            <script type="text/javascript">
+                function getParameterByName(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, '\\$&');
+                    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                }
+
+                var name = getParameterByName('name');
+                var email = getParameterByName('email');
+                var message = getParameterByName('message');
+                var phone = getParameterByName('phone');
+                var gender = getParameterByName('gender');
+            </script>
+
+            <table class="table">
+                <tr>
+                    <td class="font-weight-bold">İsminiz</td>
+                    <td id="name"><script>document.write(name);</script></td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">E-Mail</td>
+                    <td id="email"><script>document.write(email);</script></td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Telefon</td>
+                    <td id="phone"><script>document.write(phone);</script></td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Cinsiyet</td>
+                    <td id="gender"><script>document.write(gender);</script></td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Mesajınız</td>
+                    <td id="message"><script>document.write(message);</script></td>
+                </tr>
+            </table>
+
+            <div class="col-md text-center">
+                <a href="iletisim.html" class="nav-link"><i>Geri dön...</i></a>
             </div>
         </div>
-
-        <div class="bg-secondary text-light jumbotron"></div>
-    </header>
+    </div>
+    <div class="bg-secondary text-light jumbotron"></div>
+</header>
 
 <footer class="py-5 bg-secondary text-white text-center fixed-bottom">
-        Web Teknolojileri Projesi © Kağan Çevik 2025
-    </footer>
+    Web Teknolojileri Projesi © Kağan Çevik 2025
+</footer>
 </body>
 </html>

@@ -31,7 +31,7 @@
     var apiKey = "e74ab7ed";
 
     var xhr = new XMLHttpRequest();
-    var apiUrl = 'http://www.omdbapi.com/?s=' + encodeURIComponent(input) + '&apikey=' + apiKey;
+    var apiUrl = 'https://www.omdbapi.com/?s=' + encodeURIComponent(input) + '&apikey=' + apiKey;
     xhr.open('GET', apiUrl, true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -65,7 +65,7 @@
 function searchMovieDetails(movieTitle) {
     var apiKey = "e74ab7ed"; 
     var xhr = new XMLHttpRequest();
-    var apiUrl = 'http://www.omdbapi.com/?t=' + encodeURIComponent(movieTitle) + '&apikey=' + apiKey;
+    var apiUrl = 'https://www.omdbapi.com/?t=' + encodeURIComponent(movieTitle) + '&apikey=' + apiKey;
     xhr.open('GET', apiUrl, true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {

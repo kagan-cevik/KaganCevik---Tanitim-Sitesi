@@ -2,54 +2,67 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>İletişim | Kağan Çevik</title>
 
-    <!-- Responsive -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-	
-	<!-- Css -->
-	<link rel="stylesheet" href="style.css">
-
-
-    <!-- Custom JavaScript -->
+    <!-- JavaScript -->
     <script>
         function toggleMenu() {
             var navbar = document.getElementById("navbarSupportedContent");
-            if (navbar.classList.contains("show")) {
-                navbar.classList.remove("show");
-            } else {
-                navbar.classList.add("show");
-            }
+            navbar.classList.toggle("show");
         }
 
-        function control()
-		{
-			var x = document.forms["Form"]["name"].value;
-			if (x == "") 
-			{
-				alert("İsim boş bırakılamaz");
-				return false;
-			}
-			var y = document.forms["Form"]["email"].value;
-			if (y == "") 
-			{
-				alert("Mail Kısmı Boş bırakılamaz");
-				return false;
-			}
-			var forMail = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+.)+([.])+[a-zA-Z0-9.-]{2,4}$/;
-			if (forMail.test(y) == false) 
-			{
-				alert("Geçersiz Mail Adresi!!!");
-				return false;
-			}
-		}	
-    </script>
+       function validateWithJS() {
+    const form = document.getElementById("contactForm");
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const gender = form.gender.value;
+    const message = form.message.value.trim();
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim | Kağan Çevik</title>
+    // Önce tüm hata alanlarını temizle
+    document.getElementById("errorName").innerText = '';
+    document.getElementById("errorEmail").innerText = '';
+    document.getElementById("errorPhone").innerText = '';
+    document.getElementById("errorGender").innerText = '';
+
+    let isValid = true;
+
+    if (!name) {
+        document.getElementById("errorName").innerText = "İsim boş olamaz.";
+        isValid = false;
+    }
+    if (!email) {
+        document.getElementById("errorEmail").innerText = "Email boş olamaz.";
+        isValid = false;
+    } else if (!/^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z]{2,4}$/.test(email)) {
+        document.getElementById("errorEmail").innerText = "Geçersiz email.";
+        isValid = false;
+    }
+    if (!phone) {
+        document.getElementById("errorPhone").innerText = "Telefon boş olamaz.";
+        isValid = false;
+    } else if (!/^[0-9]{10,11}$/.test(phone)) {
+        document.getElementById("errorPhone").innerText = "Telefon 10-11 haneli olmalı.";
+        isValid = false;
+    }
+    if (!gender) {
+        document.getElementById("errorGender").innerText = "Cinsiyet seçiniz.";
+        isValid = false;
+    }
+    if (isValid) {
+        // Başarılıysa yönlendir
+        const query = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&gender=${encodeURIComponent(gender)}&message=${encodeURIComponent(message)}`;
+        window.location.href = `basarili.html?${query}`;
+    }
+}
+        
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-white ">
@@ -101,91 +114,116 @@
         </div>
     </nav>
     <header>
-        <div class="bg-secondary text-light jumbotron">
+        <div class="bg-secondary text-light jumbotron mt-5">
             <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <br>
-                    <h1 class="display-4 font-weight-bold">
-                        İLETİŞİM
-                    </h1>
-                    <br>
-                </div>
-            </div>
-            <div class="row">
-                    <div class="col-12">
-                        <div id="app">
-                            <form @submit.prevent="validateForm">
-                                <div class="form-group">
-                                    <label for="name">İsminiz:</label>
-                                    <input type="text" v-model="name" class="form-control" placeholder="İsminizi Girin">
-                                    <small class="form-text error-message" v-if="errors.name">{{ errors.name }}</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email adresiniz:</label>
-                                    <input type="email" v-model="email" class="form-control" placeholder="Emailinizi giriniz.">
-                                    <small class="form-text error-message" v-if="errors.email">{{ errors.email }}</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Mesajınızı yazınız:</label>
-                                    <textarea v-model="message" id="message" rows="5" class="form-control" placeholder="Mesajınızı yazınız..."></textarea>
-                                </div>
-                                <button class="btn btn-dark" type="reset" @click="resetForm">Temizle</button>
-                                <button class="btn btn btn-dark" type="submit">Gönder</button>
-                                <br><br><br>
-                            </form>
-                </div>
-            </div>
-            </div>
-        </div>
+                <h1 class="display-4 font-weight-bold">İLETİŞİM</h1>
 
-        <div class="bg-secondary text-light jumbotron"></div>
+                <div id="app">
+                    <form id="contactForm">
+    <div class="form-group">
+        <label>İsminiz:</label>
+        <input v-model="name" type="text" class="form-control" name="name" placeholder="İsminizi Girin">
+        <small v-if="errors.name" class="form-text text-warning">{{ errors.name }}</small>
+        <small id="errorName" class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+        <label>Email adresiniz:</label>
+        <input v-model="email" type="email" class="form-control" name="email" placeholder="Emailinizi giriniz.">
+        <small v-if="errors.email" class="form-text text-warning">{{ errors.email }}</small>
+        <small id="errorEmail" class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+        <label>Telefon:</label>
+        <input v-model="phone" type="text" class="form-control" name="phone" placeholder="05XXXXXXXXX">
+        <small v-if="errors.phone" class="form-text text-warning">{{ errors.phone }}</small>
+        <small id="errorPhone" class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+        <label>Cinsiyet:</label>
+        <select v-model="gender" class="form-control" name="gender">
+            <option disabled value="">Seçiniz</option>
+            <option>Erkek</option>
+            <option>Kadın</option>
+            <option>Belirtmek istemiyorum</option>
+        </select>
+        <small v-if="errors.gender" class="form-text text-warning">{{ errors.gender }}</small>
+        <small id="errorGender" class="form-text text-danger"></small>
+    </div>
+    <div class="form-group">
+        <label>Mesaj:</label>
+        <textarea v-model="message" class="form-control" name="message" rows="4"></textarea>
+    </div>
+
+    <button type="button" class="btn btn-dark" @click="resetForm">Temizle</button>
+    
+    <!-- VUE GÖNDERME -->
+    <button type="button" class="btn btn-dark" @click="validateForm">Vue ile Gönder</button>
+
+    <!-- JS GÖNDERME -->
+    <button type="button" class="btn btn-dark" @click="validateWithJS()">JS ile Gönder</button>
+</form>
+                </div>
+
+                <hr>
+
+                
     </header>
 
-<footer class="py-5 bg-secondary text-white text-center fixed-bottom">
+    <footer class="py-5 bg-secondary text-white text-center fixed-bottom">
         Web Teknolojileri Projesi © Kağan Çevik 2025
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                name: '',
-                email: '',
-                message: '',
-                errors: {}
-            },
-            methods: {
-                validateForm() {
-                    this.errors = {};
-                    if (!this.name) {
-                        this.errors.name = 'İsim boş bırakılamaz';
-                    }
-                    if (!this.email) {
-                        this.errors.email = 'Mail Kısmı Boş bırakılamaz';
-                    } else if (!this.validEmail(this.email)) {
-                        this.errors.email = 'Geçersiz Mail Adresi!!!';
-                    }
-                    if (!Object.keys(this.errors).length) {
-                        this.submitForm();
-                    }
-                },
-                validEmail(email) {
-                    var re = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+.)+([.])+[a-zA-Z0-9.-]{2,4}$/;
-                    return re.test(email);
-                },
-                submitForm() {
-                    var queryString = `name=${encodeURIComponent(this.name)}&email=${encodeURIComponent(this.email)}&message=${encodeURIComponent(this.message)}`;
-                    window.location.href = `basarili.html?${queryString}`;
-                },
-                resetForm() {
-                    this.name = '';
-                    this.email = '';
-                    this.message = '';
-                    this.errors = {};
+
+    <!-- Vue.js -->
+   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            email: '',
+            phone: '',
+            gender: '',
+            message: '',
+            errors: {}
+        },
+        methods: {
+            validateForm() {
+                this.errors = {};
+                if (!this.name) this.errors.name = 'İsim boş bırakılamaz';
+                if (!this.email) {
+                    this.errors.email = 'Email boş bırakılamaz';
+                } else if (!this.validEmail(this.email)) {
+                    this.errors.email = 'Geçersiz email formatı';
                 }
+                if (!this.phone) {
+                    this.errors.phone = 'Telefon boş bırakılamaz';
+                } else if (!/^[0-9]{10,11}$/.test(this.phone)) {
+                    this.errors.phone = 'Telefon 10-11 rakam olmalı';
+                }
+                if (!this.gender) this.errors.gender = 'Cinsiyet seçimi zorunlu';
+
+                if (Object.keys(this.errors).length === 0) {
+                    this.submitForm();
+                }
+            },
+            validEmail(email) {
+                var re = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z]{2,4}$/;
+                return re.test(email);
+            },
+            submitForm() {
+                let query = `name=${encodeURIComponent(this.name)}&email=${encodeURIComponent(this.email)}&phone=${encodeURIComponent(this.phone)}&gender=${encodeURIComponent(this.gender)}&message=${encodeURIComponent(this.message)}`; 
+                window.location.href = `basarili.html?${query}`;
+            },
+            resetForm() {
+                this.name = '';
+                this.email = '';
+                this.phone = '';
+                this.gender = '';
+                this.message = '';
+                this.errors = {};
             }
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>
